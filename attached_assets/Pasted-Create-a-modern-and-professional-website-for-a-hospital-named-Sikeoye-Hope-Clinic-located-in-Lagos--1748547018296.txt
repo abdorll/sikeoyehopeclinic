@@ -1,0 +1,171 @@
+Create a modern and professional website for a hospital named Sikeoye Hope Clinic, located in Lagos, Nigeria.
+
+
+---
+
+🔹 General Information:
+
+Business Name: Sikeoye Hope Clinic
+
+Email: clinicshc@yahoo.com
+
+Phone Number: 08033899431
+
+WhatsApp: Same as phone number (add floating WhatsApp button)
+
+Address: 79, Karimu Street, Ojuelegba Rd, Lagos
+
+Founded: 2001
+
+
+
+---
+
+🔸 Hero Section (Homepage Top Section):
+
+Use the main hero images provided in the prompt as background or foreground elements.
+
+Include the following:
+
+🔥 Bold Animated Title:
+“Compassionate Care, Trusted for Over 20 Years”
+(Use a fade-in or slide-in animation for this headline)
+
+📄 Short Description Below (Animated):
+"Your family’s health is our priority. Book a consultation with our expert medical team today."
+(Use a subtle delay animation after the title)
+
+Buttons:
+
+“Book a Consultation” (CTA button)
+
+Floating WhatsApp Chat icon
+
+Phone Call icon that’s always visible on mobile
+
+
+
+
+---
+
+🏥 Sections to Include:
+
+✅ Book a Consultation
+
+Simple appointment form with:
+
+Full Name
+
+Phone Number
+
+Email
+
+Service Needed
+
+Preferred Date & Time
+
+
+✅ Our Services
+
+List of key healthcare services with icons or images:
+
+General Consultation
+
+Maternity & Pediatric Care
+
+Laboratory & Diagnostics
+
+Pharmacy Services
+
+Emergency & Trauma Care
+
+Immunization Programs
+
+Health Education & Wellness
+
+
+✅ Why Choose Sikeoye Hope Clinic
+
+Highlight the advantages:
+
+24/7 Emergency Response
+
+Experienced & Caring Medical Staff
+
+Affordable & Transparent Pricing
+
+Modern Facilities
+
+Over 10M+ Patients Served
+
+
+✅ Clinic Stats / Achievements
+
+Visual counters or infographics:
+
+🩺 80+ Expert Doctors
+
+👨‍👩‍👧‍👦 10M+ Patients Treated
+
+🕰️ Serving Since 2001
+
+
+✅ About Us
+
+A warm and trust-building description:
+
+> Sikeoye Hope Clinic is a patient-first medical facility delivering quality healthcare in the heart of Lagos since 2001. Our team of over 80 seasoned professionals works tirelessly to ensure every patient receives personalized care with compassion, respect, and expertise.
+
+
+
+✅ Why People Trust Us
+
+Quick bullet-style points:
+
+Over 20 years of reliable healthcare
+
+High recovery and satisfaction rates
+
+Clean and modern facility
+
+Genuine care from trained professionals
+
+
+✅ Patient Reviews
+
+Testimonial section with photos and star ratings:
+
+“Excellent staff and affordable care. My go-to clinic for the whole family.” – Amaka I.
+
+“Fast attention, professional doctors. Highly recommend.” – Musa T.
+
+
+✅ Contact Section
+
+Address with Google Map embed
+
+Contact form
+
+Email and phone number
+
+WhatsApp chat button
+
+Visiting hours (if applicable)
+
+
+
+---
+
+🎨 Images:
+
+Use the attached images as follows:
+
+Hero section background and banner
+
+Doctor/team section visuals
+
+Service icons or illustration cards
+
+Testimonial section background
+
+Contact or footer image for personalization
