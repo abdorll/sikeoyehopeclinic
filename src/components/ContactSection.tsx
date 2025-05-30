@@ -1,61 +1,17 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { insertContactMessageSchema } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
-import { Button } from "@/components/ui/button";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { useToast } from "@/hooks/use-toast";
+import { Label } from "@/components/ui/label"; // Assuming Label is needed based on the original structure
+import { Button } from "@/components/ui/button";
+
 import { MapPin, Phone, Mail, MessageSquare, Clock, Send } from "lucide-react";
-import type { InsertContactMessage } from "@shared/schema";
 
 export default function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
-
-  const form = useForm<InsertContactMessage>({
-    resolver: zodResolver(insertContactMessageSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-      phone: "",
-    },
-  });
-
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Message Sent Successfully!",
-        description: data.message,
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contact"] });
-    },
-    onError: (error: any) => {
-      toast({
-        variant: "destructive",
-        title: "Failed to Send Message",
-        description: error.message || "Failed to send message. Please try again.",
-      });
-    },
-  });
-
-  const onSubmit = (data: InsertContactMessage) => {
-    contactMutation.mutate(data);
-  };
 
   const contactInfo = [
     {
@@ -188,112 +144,74 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h3>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            {/* Formspree form */}
+            <form action="https://formspree.io/f/xanengbz" method="POST" className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Name *</FormLabel>
-                        <FormControl>
-                          <Input
+                  <div>
+                      <Label htmlFor="name">Name *</Label>
+                      <Input
+                            id="name"
+                            name="name"
                             placeholder="Your name"
                             className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                            {...field}
+                            required
                           />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  </div>
                   
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Phone</FormLabel>
-                        <FormControl>
-                          <Input
+                  <div>
+                      <Label htmlFor="phone">Phone</Label>
+                      <Input
+                            id="phone"
+                            name="phone"
                             placeholder="Your phone number"
                             className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                            {...field}
                           />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  </div>
                 </div>
                 
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email *</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="your@email.com"
-                          className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div>
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="your@email.com"
+                        className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                        required
+                    />
+                </div>
                 
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Subject *</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="How can we help you?"
-                          className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div>
+                    <Label htmlFor="subject">Subject *</Label>
+                    <Input
+                        id="subject"
+                        name="subject"
+                        placeholder="How can we help you?"
+                        className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"
+                        required
+                    />
+                </div>
                 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Message *</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Your message..."
-                          rows={6}
-                          className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div>
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="Your message..."
+                        rows={6}
+                        className="focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300 resize-none"
+                        required
+                    />
+                </div>
                 
                 <Button
                   type="submit"
-                  disabled={contactMutation.isPending}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 font-semibold transform hover:scale-105 transition-all duration-300"
                 >
                   <Send className="mr-2 h-4 w-4" />
-                  {contactMutation.isPending ? "Sending..." : "Send Message"}
+                  Send Message
                 </Button>
               </form>
-            </Form>
           </motion.div>
         </div>
       </div>
